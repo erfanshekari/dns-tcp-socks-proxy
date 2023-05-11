@@ -1,0 +1,12 @@
+version: '3.9'
+services:
+  dns-proxy:
+    container_name: dns-proxy
+    build: 
+      context: .
+    restart: always
+    ports:
+      - '53:53/udp'
+    volumes:
+      - ./dns_proxy.conf:/home/dns_proxy.conf
+      - ./resolv.conf:/home/resolv.conf
